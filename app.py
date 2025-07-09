@@ -33,8 +33,6 @@ discord_thread.start()
 
 @app.route('/')
 def main():
-    if bot_ready:
-            logging.info("trieddd to typing")
     return render_template('main.html')
 
 
@@ -75,7 +73,6 @@ def volunteer():
             f"**Phone:** {phone}"
         )
         if bot_ready:
-            logging.info("trieddd")
             asyncio.run_coroutine_threadsafe(
                         send_discord_message(VOLUNTEER_CHANNEL_ID, message), client.loop
                     )
@@ -88,7 +85,6 @@ def volunteer():
 async def send_discord_message(channel_id, message_content):    
     channel = client.get_channel(channel_id)
     if channel:
-            logging.info("trieddd to typeeee")
             await channel.send(message_content)
 
 
