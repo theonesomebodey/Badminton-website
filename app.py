@@ -35,9 +35,6 @@ discord_thread.start()
 def main():
     if bot_ready:
             logging.info("trieddd to typing")
-            asyncio.run_coroutine_threadsafe(
-                        send_discord_message(SIGNUP_CHANNEL_ID, "testing testing"), client.loop
-                    )
     return render_template('main.html')
 
 
