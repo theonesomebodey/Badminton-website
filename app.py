@@ -8,8 +8,8 @@ import logging
 app = Flask(__name__)
 
 DISCORD_BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
-SIGNUP_CHANNEL_ID = 1392243683046199366       
-VOLUNTEER_CHANNEL_ID = 1392243711412277279 
+SIGNUP_CHANNEL_ID = 1392243683046199366
+VOLUNTEER_CHANNEL_ID = 1392243711412277279
 
 intents = discord.Intents.default()
 intents.message_content = True 
