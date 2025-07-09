@@ -3,7 +3,7 @@ import discord
 import os
 from threading import Thread
 import asyncio
-
+import logging
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ discord_thread.start()
 @app.route('/')
 def main():
     if bot_ready:
-            print("tried to type")
+            logging.info("trieddd to typing")
             asyncio.run_coroutine_threadsafe(
                         send_discord_message(SIGNUP_CHANNEL_ID, "testing testing"), client.loop
                     )
@@ -78,7 +78,7 @@ def volunteer():
             f"**Phone:** {phone}"
         )
         if bot_ready:
-            print("tried to type")
+            logging.info("trieddd")
             asyncio.run_coroutine_threadsafe(
                         send_discord_message(VOLUNTEER_CHANNEL_ID, message), client.loop
                     )
@@ -91,7 +91,7 @@ def volunteer():
 async def send_discord_message(channel_id, message_content):    
     channel = client.get_channel(channel_id)
     if channel:
-            print("tried to type")
+            logging.info("trieddd to typeeee")
             await channel.send(message_content)
 
 
