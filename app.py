@@ -4,7 +4,7 @@ import os
 from threading import Thread
 import asyncio
 import logging
-
+logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 DISCORD_BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
@@ -33,6 +33,7 @@ discord_thread.start()
 
 @app.route('/')
 def main():
+    logger.info("Application started successfully.")
     return render_template('main.html')
 
 
@@ -85,6 +86,7 @@ def volunteer():
 async def send_discord_message(channel_id, message_content):    
     channel = client.get_channel(channel_id)
     if channel:
+            logger.info("it tried")
             await channel.send(message_content)
 
 
