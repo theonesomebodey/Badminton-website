@@ -18,10 +18,20 @@ def signup():
         email = request.form.get('email')
         phone = request.form.get('phone')
         skillLevel = request.form.get('skillLevel')
-        msg = MIMEText(fullname + email + phone + skillLevel)
+
+        message = (
+            f"**New Player Form Submission:**\n"
+            f"**Full Name:** {fullname}\n"
+            f"**Email:** {email}\n"
+            f"**Phone:** {phone}\n"
+            f"**Skill Level:** {skillLevel}"
+        )
+
+
+        msg = MIMEText(message)
         msg['From'] = 'shawnxionggg@gmail.com'
         msg['To'] = 'shawnxionggg@gmail.com'
-        msg['Subject'] = "some 1 signed up"
+        msg['Subject'] = "player - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
@@ -37,10 +47,19 @@ def volunteer():
         fullname = request.form.get('fullName')
         email = request.form.get('email')
         phone = request.form.get('phone')
-        msg = MIMEText(fullname + email + phone)
+
+        message = (
+            f"**New Volunteer Form Submission:**\n"
+            f"**Full Name:** {fullname}\n"
+            f"**Email:** {email}\n"
+            f"**Phone:** {phone}\n"
+        )
+
+
+        msg = MIMEText(message)
         msg['From'] = 'shawnxionggg@gmail.com'
         msg['To'] = 'shawnxionggg@gmail.com'
-        msg['Subject'] = "some 1 signed up"
+        msg['Subject'] = "volunteer - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
@@ -49,5 +68,8 @@ def volunteer():
         return render_template('thankyouvolunteer.html')
     else:
         return render_template('volunteer.html')
+    
+
+
     
     
