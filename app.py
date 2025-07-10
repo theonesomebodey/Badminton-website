@@ -34,7 +34,7 @@ def signup():
         msg['Subject'] = "player - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
+        server.login('shawnxionggg@gmail.com', password)
         server.send_message(msg)
         server.quit()
         return render_template('thankyou.html')
