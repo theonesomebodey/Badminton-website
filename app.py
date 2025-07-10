@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import smtplib
 from email.mime.text import MIMEText
-import os 
+import os
 
 password = os.getenv('password')
 
@@ -32,6 +32,19 @@ def signup():
             f"**Events Selected:** {', '.join(events)}\n"
             f"**Partner Name:** {partner_name}\n"
         )
+        messagetoplayer = (
+            f"Thank You For Signing Up🎉{fullname}\n"
+            f"We are excited to see you compete on August 2nd!"
+        )
+        msg = MIMEText(messagetoplayer)
+        msg['From'] = 'shawnxionggg@gmail.com'
+        msg['To'] = email
+        msg['Subject'] = "Thank You!" + fullname
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login('shawnxionggg@gmail.com', password)
+        server.send_message(msg)
+        server.quit()
 
 
         msg = MIMEText(message)
@@ -60,6 +73,19 @@ def volunteer():
             f"**Email:** {email}\n"
             f"**Phone:** {phone}\n"
         )
+        messagetovolunteer = (
+            f"Thank You {fullname}\n"
+            f"We are excited to see you on August 2nd!"
+        )
+        msg = MIMEText(messagetovolunteer)
+        msg['From'] = 'shawnxionggg@gmail.com'
+        msg['To'] = email
+        msg['Subject'] = "Thank You!" + fullname
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login('shawnxionggg@gmail.com', password)
+        server.send_message(msg)
+        server.quit()
 
 
         msg = MIMEText(message)
@@ -74,6 +100,8 @@ def volunteer():
         return render_template('thankyouvolunteer.html')
     else:
         return render_template('volunteer.html')
+    
+
     
 
 
