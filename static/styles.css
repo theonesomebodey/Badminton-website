@@ -264,6 +264,9 @@ section h2::after {
     gap: 30px; /* Increased gap for better spacing */
     padding: 0 20px; /* Padding for grid itself */
 }
+#contact-info-card {
+    grid-column: 1 / -1; /* This makes the item span from the first column line to the last column line */
+}
 
 .details-card {
     background-color: #fff;
