@@ -7,6 +7,7 @@ password = os.getenv('password')
 
 app = Flask(__name__)
 
+
 app.secret_key = os.getenv("password2")
 def generate_math_question():
     num1 = random.randint(1, 10)
