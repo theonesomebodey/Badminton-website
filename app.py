@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 import smtplib
 from email.mime.text import MIMEText
+import os 
 
+password = os.getenv('password')
 
 app = Flask(__name__)
 
@@ -38,7 +40,7 @@ def signup():
         msg['Subject'] = "player - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
+        server.login('shawnxionggg@gmail.com', password)
         server.send_message(msg)
         server.quit()
         return render_template('thankyou.html')
@@ -66,14 +68,13 @@ def volunteer():
         msg['Subject'] = "volunteer - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
+        server.login('shawnxionggg@gmail.com', password)
         server.send_message(msg)
         server.quit()
         return render_template('thankyouvolunteer.html')
     else:
         return render_template('volunteer.html')
     
-
 
 
     
