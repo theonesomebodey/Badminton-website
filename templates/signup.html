@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+
+        /* --- Existing Styles (Unchanged) --- */
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding-top: 70px; /* Space for the fixed header */
+            margin: 0;            padding-top: 70px; /* Space for the fixed header */
             background-color: var(--light-bg);
             color: var(--text-medium);
             line-height: 1.6;
@@ -21,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* Fixed Navigation Bar (similar to main page) */
         .top-nav {
             position: fixed;
             top: 0;
@@ -64,7 +64,6 @@
             transform: translateY(-2px);
         }
 
-        /* Main Content Container for the form */
         .container {
             max-width: 700px;
             margin: 30px auto;
@@ -173,7 +172,7 @@
         }
 
         .partner-name-group {
-            display: none;
+            display: none; 
         }
 
         .event-selection-group {
@@ -181,8 +180,8 @@
         }
 
         .event-selection-group label {
-            display: block;
-            margin-bottom: 12px;
+            display: block; 
+            margin-bottom: 12px; 
             font-weight: 600;
             color: var(--text-dark);
             font-size: 1.05em;
@@ -191,7 +190,7 @@
         .event-checkbox-wrapper {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 10px; 
         }
 
         .event-checkbox-wrapper input[type="checkbox"] {
@@ -206,8 +205,9 @@
             font-weight: 400;
             font-size: 1em;
             color: var(--text-medium);
-            cursor: pointer;
+            cursor: pointer; 
         }
+
 
         footer {
             text-align: center;
@@ -277,10 +277,12 @@
 
 <body>
 
+
     <div class="top-nav">
         <img src="{{ url_for('static', filename='yerr.png') }}" alt="" class="smth">
         <a href="main.html" class="top-nav-title">Dropshots For A Cause</a>
         <div class="top-nav-links">
+
             <a href="volunteer.html">Volunteer</a>
             <a href="signup.html">Sign Up</a>
         </div>
@@ -342,6 +344,10 @@
                 <label for="partnerName">Partner's Full Name</label>
                 <input type="text" id="partnerName" name="partnerName" placeholder="Your Partner's Full Name">
             </div>
+            <div class="form-group">
+                <label for="math_answer_input">What is {{ math_question }}?</label>
+                <input type="text" id="math_answer_input" name="math_answer_input" placeholder="Your answer" required pattern="[0-9]+">
+            </div>
 
             <button type="submit" value="Register" class="submit-button">Submit Registration</button>
         </form>
@@ -366,19 +372,21 @@
                 });
 
                 if (isDoublesSelected) {
-                    partnerNameGroup.style.display = 'block';
-                    partnerNameInput.setAttribute('required', 'required');
+                    partnerNameGroup.style.display = 'block'; // Show the field
+                    partnerNameInput.setAttribute('required', 'required'); // Make partner name required
                 } else {
-                    partnerNameGroup.style.display = 'none';
-                    partnerNameInput.removeAttribute('required');
-                    partnerNameInput.value = '';
+                    partnerNameGroup.style.display = 'none'; // Hide the field
+                    partnerNameInput.removeAttribute('required'); // Remove required attribute
+                    partnerNameInput.value = ''; // Clear partner name when hidden
                 }
             }
 
+            // Add event listeners to all doubles checkboxes
             doublesCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', togglePartnerField);
             });
 
+            // Call it once on page load to set initial state
             togglePartnerField();
         });
     </script>
