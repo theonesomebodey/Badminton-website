@@ -66,20 +66,6 @@ def signup():
             f"**Events Selected:** {', '.join(events)}\n"
             f"**Partner Name:** {partner_name}\n"
         )
-        messagetoplayer = (
-            f"Thank You For Signing Up🎉{fullname}\n"
-            f"We are excited to see you compete on August 2nd!"
-        )
-        msg = MIMEText(messagetoplayer)
-        msg['From'] = 'shawnxionggg@gmail.com'
-        msg['To'] = email
-        msg['Subject'] = "Thank You!" + fullname
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
-        server.send_message(msg)
-        server.quit()
-
 
         msg = MIMEText(message)
         msg['From'] = 'shawnxionggg@gmail.com'
@@ -125,20 +111,6 @@ def volunteer():
             f"**Email:** {email}\n"
             f"**Phone:** {phone}\n"
         )
-        messagetovolunteer = (
-            f"Thank You {fullname}\n"
-            f"We are excited to see you on August 2nd!"
-        )
-        msg = MIMEText(messagetovolunteer)
-        msg['From'] = 'shawnxionggg@gmail.com'
-        msg['To'] = email
-        msg['Subject'] = "Thank You!" + fullname
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
-        server.send_message(msg)
-        server.quit()
-
 
         msg = MIMEText(message)
         msg['From'] = 'shawnxionggg@gmail.com'
