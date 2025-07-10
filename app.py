@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
 import smtplib
 from email.mime.text import MIMEText
-import os
+
 
 app = Flask(__name__)
-password = os.getenv("password")
+
 
 @app.route('/')
 def main():
@@ -18,13 +18,17 @@ def signup():
         email = request.form.get('email')
         phone = request.form.get('phone')
         skillLevel = request.form.get('skillLevel')
+        events = request.form.getlist('events') # For multiple checkboxes
+        partner_name = request.form.get('partnerName') # Will be None if not visible/filled
 
         message = (
             f"**New Player Form Submission:**\n"
             f"**Full Name:** {fullname}\n"
             f"**Email:** {email}\n"
             f"**Phone:** {phone}\n"
-            f"**Skill Level:** {skillLevel}"
+            f"**Skill Level:** {skillLevel}\n"
+            f"**Events Selected:** {', '.join(events)}\n"
+            f"**Partner Name:** {partner_name}\n"
         )
 
 
@@ -34,7 +38,7 @@ def signup():
         msg['Subject'] = "player - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
+        server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
         server.send_message(msg)
         server.quit()
         return render_template('thankyou.html')
@@ -62,13 +66,14 @@ def volunteer():
         msg['Subject'] = "volunteer - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
+        server.login('shawnxionggg@gmail.com', 'mwbp njni qlfo vfqf')
         server.send_message(msg)
         server.quit()
         return render_template('thankyouvolunteer.html')
     else:
         return render_template('volunteer.html')
     
+
 
 
     
