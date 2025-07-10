@@ -251,6 +251,107 @@ section h2::after {
     border-radius: 2px;
 }
 
+.info-section {
+    padding: 60px 0; /* More padding top/bottom */
+    background-color: #fcfcfc; /* Slightly off-white background */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Spacing below section */
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Increased gap for better spacing */
+    padding: 0 20px; /* Padding for grid itself */
+}
+
+.details-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+    padding: 30px;
+    text-align: center; /* Center content within the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee; /* Subtle border */
+    display: flex;
+    flex-direction: column; /* Stack icon and content */
+    align-items: center;
+}
+
+.details-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.card-icon {
+    font-size: 3.5em; /* Larger icon size */
+    color: #3498db; /* Accent color for icons */
+    margin-bottom: 20px; /* Spacing below icon */
+    background-color: #e8f5fd; /* Light background for icon */
+    border-radius: 50%; /* Circular background */
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-content h3 {
+    font-size: 1.8em; /* Slightly larger heading in cards */
+    color: #2c3e50;
+    margin-top: 0; /* Remove default margin */
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative; /* For a subtle underline */
+    padding-bottom: 10px;
+}
+
+.card-content h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50px; /* Shorter underline for card headings */
+    height: 3px;
+    background-color: #2ecc71; /* Another accent color */
+    border-radius: 2px;
+}
+
+.card-content p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-content ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    text-align: left; /* Align list items left within the card */
+    width: 100%; /* Take full width */
+    max-width: 250px; /* Constrain list width if needed */
+    margin: 0 auto; /* Center the list */
+}
+
+.card-content ul li {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    color: #444;
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet */
+}
+
+.card-content ul li::before {
+    content: '\f00c'; /* Font Awesome checkmark icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #2ecc71; /* Green checkmark */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 section h3 {
     font-size: 2em;
     color: var(--dark-blue); /* Darker blue for subheadings */
