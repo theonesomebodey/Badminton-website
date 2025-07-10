@@ -68,12 +68,12 @@ def signup():
         )
 
         msg = MIMEText(message)
-        msg['From'] = 'shawnxionggg@gmail.com'
-        msg['To'] = 'shawnxionggg@gmail.com'
+        msg['From'] = 'juniorflybear@gmail.com'
+        msg['To'] = 'juniorflybear@gmail.com'
         msg['Subject'] = "player - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
+        server.login('juniorflybear@gmail.com', password)
         server.send_message(msg)
         server.quit()
         return render_template('thankyou.html')
@@ -113,12 +113,12 @@ def volunteer():
         )
 
         msg = MIMEText(message)
-        msg['From'] = 'shawnxionggg@gmail.com'
-        msg['To'] = 'shawnxionggg@gmail.com'
+        msg['From'] = 'juniorflybear@gmail.com'
+        msg['To'] = 'juniorflybear@gmail.com'
         msg['Subject'] = "volunteer - " + fullname
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('shawnxionggg@gmail.com', password)
+        server.login('juniorflybear@gmail.com', password)
         server.send_message(msg)
         server.quit()
         return render_template('thankyouvolunteer.html')
