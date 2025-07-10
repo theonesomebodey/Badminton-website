@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Sign-up: Dropshots For A Cause</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* --- Existing Styles (Unchanged) --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;            padding-top: 70px; /* Space for the fixed header */
+            background-color: var(--light-bg);
+            color: var(--text-medium);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 97%;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 10px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .top-nav-title {
+            position: fixed;
+            margin-left: 70px;
+            text-align: center;
+            font-size: 1.7em;
+            font-weight: 900;
+            color: var(--white);
+            text-decoration: none;
+            padding: 5px 0;
+
+        }
+
+        .top-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 8px 18px;
+            margin-left: 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+        }
+
+        .top-nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            color: var(--text-medium);
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+            outline: none;
+        }
+
+        .form-group.checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group.checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--green-cta);
+        }
+
+        .form-group.checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 0.95em;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: var(--green-cta);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.25em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .submit-button:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .partner-name-group {
+            display: none; 
+        }
+
+        .event-selection-group {
+            margin-bottom: 25px;
+        }
+
+        .event-selection-group label {
+            display: block; 
+            margin-bottom: 12px; 
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05em;
+        }
+
+        .event-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; 
+        }
+
+        .event-checkbox-wrapper input[type="checkbox"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-blue);
+        }
+
+        .event-checkbox-wrapper label {
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 1em;
+            color: var(--text-medium);
+            cursor: pointer; 
+        }
+
+
+        footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 100px;
+            }
+            .top-nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .top-nav-links {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            .top-nav-links a {
+                margin: 5px 10px;
+                padding: 6px 12px;
+            }
+            .container {
+                margin: 20px 15px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .form-group label {
+                font-size: 0.95em;
+            }
+            .form-group input,
+            .form-group select {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+            .submit-button {
+                font-size: 1.1em;
+                padding: 12px 15px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="top-nav">
+        <img src="{{ url_for('static', filename='yerr.png') }}" alt="" class="smth">
+        <a href="/" class="top-nav-title">Dropshots For A Cause</a>
+        <div class="top-nav-links">
+
+            <a href="volunteer.html">Volunteer</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Player Sign-up Form</h1>
+        <form id="playerSignupForm" action="signup.html" method="POST">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Lebron James" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="lebron.james@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" title="Format: 123-456-7890" required>
+            </div>
+
+            <div class="form-group">
+                <label for="skillLevel">Skill Level</label>
+                <select id="skillLevel" name="skillLevel" required>
+                    <option value="">Select Skill Level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+
+            <div class="form-group event-selection-group">
+                <label>Select Events to Play:</label>
+                <div class="event-checkbox-wrapper">
+                    <input type="checkbox" id="menSingles" name="events" value="Men's Singles">
+                    <label for="menSingles">Co-ed Singles</label>
+                </div>
+                <div class="event-checkbox-wrapper">
+                    <input type="checkbox" id="mixedDoubles" name="events" value="Mixed Doubles" class="doubles-event">
+                    <label for="mixedDoubles">Co-ed Doubles</label>
+                </div>
+            </div>
+
+            <div id="partnerNameGroup" class="form-group partner-name-group">
+                <label for="partnerName">Partner's Full Name</label>
+                <input type="text" id="partnerName" name="partnerName" placeholder="Your Partner's Full Name">
+            </div>
+            <div class="form-group">
+                <label for="math_answer_input">What is {{ math_question }}?</label>
+                <input type="text" id="math_answer_input" name="math_answer_input" placeholder="Your answer">
+            </div>
+
+            <button type="submit" value="Register" class="submit-button">Submit Registration</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dropshots For A Cause.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const doublesCheckboxes = document.querySelectorAll('.doubles-event');
+            const partnerNameGroup = document.getElementById('partnerNameGroup');
+            const partnerNameInput = document.getElementById('partnerName');
+
+            function togglePartnerField() {
+                let isDoublesSelected = false;
+                doublesCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        isDoublesSelected = true;
+                    }
+                });
+
+                if (isDoublesSelected) {
+                    partnerNameGroup.style.display = 'block'; // Show the field
+                    partnerNameInput.setAttribute('required', 'required'); // Make partner name required
+                } else {
+                    partnerNameGroup.style.display = 'none'; // Hide the field
+                    partnerNameInput.removeAttribute('required'); // Remove required attribute
+                    partnerNameInput.value = ''; // Clear partner name when hidden
+                }
+            }
+
+            // Add event listeners to all doubles checkboxes
+            doublesCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', togglePartnerField);
+            });
+
+            // Call it once on page load to set initial state
+            togglePartnerField();
+        });
+    </script>
+
+</body>
+</html>

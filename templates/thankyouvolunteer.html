@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thank You for Signing Up!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+
+            /* --- BACKGROUND IMAGES START --- */
+            /* Define multiple background images, separated by commas */
+            background-image:
+                url('https://cdn.discordapp.com/attachments/762132334660943872/1392945264683122778/IMG_2225.jpg?ex=687160de&is=68700f5e&hm=192b48d90a754710538d442b3fb541c7d3e63000ba2fc4a22310fbab57cedbe1&'),
+                url('https://cdn.discordapp.com/attachments/762132334660943872/1392945267824660540/IMG_1663.jpg?ex=687160df&is=68700f5f&hm=5715140f2b148d4c4be55df538a16c46efa385893096d0981585cfdb9fee0f0a&'),
+                url('https://cdn.discordapp.com/attachments/762132334660943872/1392949379849257141/1392945270819651626remix-1752175409700.png?ex=687164b3&is=68701333&hm=98c124ffeb8c57506a3c96dada46844f07fde8f1be748b5a4abc05bf22b0251d&'),
+                url('https://cdn.discordapp.com/attachments/762132334660943872/1392949237482000445/1392945270819651626remix-1752175376015.png?ex=68716491&is=68701311&hm=97cd7d7670d2a44e3072716f506a8fee01dafca814effe9437ea227c4db3190b&');
+                        /* Control repetition for each image */
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+
+            /* Position each image */
+            background-position:
+                left top,      /* Image 1: Top-left corner */
+                right top,     /* Image 2: Top-right corner */
+                left bottom,   /* Image 3: Bottom-left corner */
+                right bottom;  /* Image 4: Bottom-right corner */
+
+            /* Size each image (e.g., to cover a quarter of the screen, or a fixed size) */
+            /* You can use 'contain', 'cover', '100% 100%', or fixed pixels like '300px 200px' */
+            background-size:
+                50% 50%,   /* Image 1: Takes up 50% width, 50% height of the body */
+                50% 50%,   /* Image 2 */
+                50% 50%,   /* Image 3 */
+                50% 50%;   /* Image 4 */
+
+            /* Fallback background color if images don't load */
+            background-color: #f4f4f4;
+            /* --- BACKGROUND IMAGES END --- */
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white to see background */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Ensure container is above background images */
+            position: relative; /* Needed for z-index to work */
+        }
+        h1 {
+            color: #ad3cd3;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .green-round-button {
+            display: inline-block;
+            background-color: #d256fb;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .green-round-button:hover {
+            background-color: #ba44e1;
+            transform: translateY(-2px);
+        }
+        .green-round-button:active {
+            background-color: #a239c5;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <img src="{{ url_for('static', filename='yerr.png') }}" alt="" class="smth">
+        <a href="/" class="top-nav-title">Dropshots For A Cause!</a>
+        <div class="top-nav-links">
+            <a href="volunteer.html">Volunteer</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>🎉 Thank You for Signing Up! 🎉</h1>
+        <p>🎉You have been successfully registered! We can't wait to see you!🎉</p>
+
+        <a href="{{ url_for('main') }}" class="green-round-button">
+            Go to Info Page
+        </a>
+    </div>
+</body>
+</html>

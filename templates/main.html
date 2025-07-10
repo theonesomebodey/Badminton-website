@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Tournament: Dropshots For A Cause</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="top-nav">
+        <img src="{{ url_for('static', filename='yerr.png') }}" alt="" class="smth">
+        <a href="/" class="top-nav-title">Dropshots For A Cause!</a>
+        <div class="top-nav-links">
+            <a href="volunteer.html">Volunteer</a>
+            <a href="signup.html">Sign up</a>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <h1>Dropshots For A Cause!</h1>
+        <p>Exclusive Badminton Tournament!</p>
+        <p>Saturday, August 2, 2025 | <a href="https://www.google.com/maps/search/?api=1&query=Surrey+Badminton+Club" style="color: aliceblue;">Surrey Badminton Club</a></p>
+        <a href="#player-signup" class="hero-cta-button">Register Now!</a>                                                                       <a href="#volunteer-signup" class="hero-cta-button volunteer">Volunteer Now!</a>
+    </div>
+
+    <div class="container">
+        
+
+        <section id="info" class="info-section">
+            <h2>Tournament Details</h2>
+
+            <div class="details-grid">
+                <div class="details-card">
+                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="card-content">
+                        <h3>Event Overview</h3>
+                        <p>Join us for the badminton event of the year! The Dropshots For A Cause promises thrilling matches, friendly competition, and a chance to showcase your skills on the court.</p>
+                        <ul>
+                            <li><strong>Date:</strong> Saturday, August 2, 2025</li>
+                            <li><strong>Time:</strong> 10:00 AM - 4:00 PM</li>
+                            <li><strong>Location:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Surrey+Badminton+Club" style="color: black;">Surrey Badminton Club</a>, Main Area(Court 1-4)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="details-card">
+                    <div class="card-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="card-content">
+                        <h3>Eligibility & Categories</h3>
+                        <p>Open to all community members.</p>
+                        <ul>
+                            <li><strong>Categories:</strong> Co-ed Singles, Co-ed Doubles</li>
+                            <li><strong>Skill Levels:</strong> Beginner, Intermediate, Advanced (self-assessed)</li>
+                            <li><strong>Entry Fee:</strong> $15 per player </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="details-card">
+                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="card-content">
+                        <h3>Tournament Format</h3>
+                        <p>The tournament will feature a round-robin group stage followed by a single-elimination knockout stage for the top performers in each category.</p>
+                        <ul>
+                            <li>Each match will be best of 3 games, rally scoring to 21 points.</li>
+                            <li>Minimum of 3 matches guaranteed for all participants in the group stage.</li>
+                            <li>Shuttles will be provided.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="details-card">
+                    <div class="card-icon"><i class="fas fa-medal"></i></div>
+                    <div class="card-content">
+                        <h3>Prizes & Awards</h3>
+                        <p>Exciting prizes await the champions and finalists!</p>
+                        <ul>
+                            <li><strong>Champions:</strong> Gold Medal $50 Gift Voucher per Champion for each event</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-card">
+                    <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div> <div class="card-content">
+                        <h3>Our Cause</h3>
+                        <p>Dropshots For A Cause is more than just a tournament; it's an opportunity to make a tangible difference in our community.</p>
+                        <p>Ekal Canada is a registered Canadian charity / non-profit organization engaged in the education of tribal, indigenous children in rural India and Nepal. It is the largest grassroots movement of its kind in the world. Ekal Canada has zero administrative cost due to generous donation support from Narendra and Hardip Shah Foundation/Shah Financial Planning Inc. This means 100% of the proceeds from your donations go towards Ekal’s programs.</p>
+                    </div>
+                </div>
+
+                <div class="details-card" id="contact-info-card"> 
+                    <div class="card-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <div class="card-content">
+                        <h3>Contact Information</h3>
+                        <p>Have any questions? Please reach out</p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:shawnxionggg@gmail.com" style="color: #2563eb; text-decoration: underline;">shawnxionggg@gmail.com</a></li>
+                            <li><strong>Phone:</strong> 236-788-9110</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="player-signup" class="signup-section">
+            <h2>Ready to Play?</h2>
+            <p style="font-size: 1.125em; margin-bottom: 25px;">Sign up now to secure your spot in the Dropshots For A Cause! Limited spots available.</p>
+            <a href="signup.html" target="_blank" class="cta-button">
+                Register as a Player!
+            </a>
+        </section>
+
+        <section id="volunteer-signup" class="volunteer-section">
+            <h2>Want to Help Out?</h2>
+            <p style="font-size: 1.125em; margin-bottom: 25px;">Our tournament relies on the amazing support of volunteers. Join our team and help make this event a success!</p>
+            <a href="volunteer.html" target="_blank" class="cta-button volunteer">
+                Sign Up to Volunteer!
+            </a>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Dropshots For A Cause. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
