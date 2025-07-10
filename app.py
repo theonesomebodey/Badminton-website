@@ -7,8 +7,7 @@ password = os.getenv('password')
 
 app = Flask(__name__)
 
-
-app.secret_key = os.getenv("password2")
+app.secret_key = os.getenv('password2')
 def generate_math_question():
     num1 = random.randint(1, 10)
     num2 = random.randint(1, 10)
@@ -46,7 +45,7 @@ def signup():
             # Clear session math values to force new question
             session.pop('math_question', None)
             session.pop('math_answer', None)
-            return redirect(url_for('signup.html')) # Redirect to GET request to show new question
+            return redirect(url_for('signup')) # Redirect to GET request to show new question
 
         # --- Clear math session values after successful validation ---
         session.pop('math_question', None)
@@ -110,7 +109,7 @@ def volunteer():
             # Clear session math values to force new question
             session.pop('math_question', None)
             session.pop('math_answer', None)
-            return redirect(url_for('volunteer.html')) # Redirect to GET request to show new question
+            return redirect(url_for('volunteer')) # Redirect to GET request to show new question
 
         # --- Clear math session values after successful validation ---
         session.pop('math_question', None)
@@ -157,6 +156,7 @@ def volunteer():
     
 
 
+    
     
 
     
