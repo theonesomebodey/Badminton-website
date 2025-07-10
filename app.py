@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
 import smtplib
 from email.mime.text import MIMEText
-
+import os
 
 app = Flask(__name__)
-
+password = os.getenv("password")
 
 @app.route('/')
 def main():
