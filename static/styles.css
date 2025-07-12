@@ -13,7 +13,7 @@
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding-top: 70px; /* Space for the fixed header */
+    padding-top: 70px;
     background-color: var(--light-bg);
     color: var(--text-medium);
     line-height: 1.6;
@@ -33,14 +33,14 @@ body {
     top: 0;
     left: 0;
     width: 97%;
-    background-color: var(--dark-blue); /* Darker blue for nav */
+    background-color: var(--dark-blue); 
     color: var(--white);
-    padding: 10px 35px; /* Increased right padding from 25px to 35px */
+    padding: 10px 35px; 
     display: flex;
-    justify-content: space-between; /* Space out title and links */
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-    z-index: 1000; /* Ensure it stays on top */
+    z-index: 1000; 
 }
 
 .top-nav-title {
@@ -70,7 +70,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
 .hero-section {
     background-image: url('https://static.vecteezy.com/system/resources/previews/047/401/561/non_2x/cartoon-character-boy-and-girl-playing-badminton-vector.jpg'); /* Placeholder image URL */
     background-size: cover;
@@ -84,8 +83,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
-/* Overlay for Hero Section to improve text readability */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -93,19 +90,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
 .hero-section h1,
 .hero-section p,
 .hero-section .hero-cta-button {
-    position: relative; /* Bring text and button above the overlay */
+    position: relative; 
     z-index: 2;
 }
 
 .hero-section h1 {
-    font-size: 4.5em; /* Larger title */
+    font-size: 4.5em; 
     font-weight: 800;
     margin-bottom: 15px;
     line-height: 1.1;
@@ -121,11 +118,11 @@ body {
 
 .hero-cta-button {
     display: inline-block;
-    background-color: var(--green-cta); /* Green CTA */
+    background-color: var(--green-cta); 
     color: var(--white);
     font-weight: bold;
     padding: 18px 40px;
-    border-radius: 50px; /* Fully rounded */
+    border-radius: 50px;
     text-decoration: none;
     font-size: 1.4em;
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
@@ -137,7 +134,7 @@ body {
 
 .hero-cta-button:hover {
     transform: scale(1.08) translateY(-3px);
-    background-color: #16a34a; /* Darker green */
+    background-color: #16a34a;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 .hero-cta-button.volunteer {
@@ -147,9 +144,8 @@ body {
 .hero-cta-button.volunteer:hover {
     background-color: #7e22ce;
 }
-/* Main Content Container */
 .container {
-    max-width: 1000px; /* Slightly wider container */
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 25px;
     background-color: var(--white);
@@ -159,7 +155,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* Navigation Buttons (Main) */
 .main-nav {
     display: flex;
     flex-wrap: wrap;
@@ -187,24 +182,24 @@ body {
 }
 
 .main-nav a.info-btn {
-    background-color: #3b82f6; /* Blue */
+    background-color: #3b82f6; 
 }
 .main-nav a.info-btn:hover {
-    background-color: #2563eb; /* Darker Blue */
+    background-color: #2563eb;
 }
 
 .main-nav a.player-btn {
-    background-color: #22c55e; /* Green */
+    background-color: #22c55e; 
 }
 .main-nav a.player-btn:hover {
-    background-color: #16a34a; /* Darker Green */
+    background-color: #16a34a; 
 }
 
 .main-nav a.volunteer-btn {
-    background-color: #9333ea; /* Purple */
+    background-color: #9333ea;
 }
 .main-nav a.volunteer-btn:hover {
-    background-color: #7e22ce; /* Darker Purple */
+    background-color: #7e22ce;
 }
 
 /* Section Styles */
@@ -218,22 +213,22 @@ section {
 }
 
 section.info-section {
-    background-color: #f8fafc; /* Light background for info */
+    background-color: #f8fafc;
 }
 section.signup-section {
     text-align: center;
     padding: 40px;
-    background-color: #ecfeff; /* Light cyan for player signup */
+    background-color: #ecfeff; 
 }
 section.volunteer-section {
     text-align: center;
     padding: 40px;
-    background-color: #f3e8ff; /* Light purple for volunteer signup */
+    background-color: #f3e8ff; 
 }
 
 
 section h2 {
-    font-size: 2.75em; /* Larger section titles */
+    font-size: 2.75em; 
     color: var(--text-dark);
     margin-bottom: 30px;
     text-align: center;
@@ -252,46 +247,46 @@ section h2::after {
 }
 
 .info-section {
-    padding: 60px 0; /* More padding top/bottom */
-    background-color: #fcfcfc; /* Slightly off-white background */
+    padding: 60px 0; 
+    background-color: #fcfcfc; 
     border-radius: 10px;
-    margin-bottom: 30px; /* Spacing below section */
+    margin-bottom: 30px; 
 }
 
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 30px; /* Increased gap for better spacing */
-    padding: 0 20px; /* Padding for grid itself */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 0 20px; 
 }
 #contact-info-card {
-    grid-column: 1 / -1; /* This makes the item span from the first column line to the last column line */
+    grid-column: 1 / -1; 
 }
 
 .details-card {
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); 
     padding: 30px;
-    text-align: center; /* Center content within the card */
+    text-align: center; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #eee; /* Subtle border */
+    border: 1px solid #eee; 
     display: flex;
-    flex-direction: column; /* Stack icon and content */
+    flex-direction: column;
     align-items: center;
 }
 
 .details-card:hover {
-    transform: translateY(-8px); /* Lift effect on hover */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-icon {
-    font-size: 3.5em; /* Larger icon size */
-    color: #3498db; /* Accent color for icons */
-    margin-bottom: 20px; /* Spacing below icon */
-    background-color: #e8f5fd; /* Light background for icon */
-    border-radius: 50%; /* Circular background */
+    font-size: 3.5em; 
+    color: #3498db; 
+    margin-bottom: 20px; 
+    background-color: #e8f5fd;
+    border-radius: 50%; 
     width: 80px;
     height: 80px;
     display: flex;
@@ -301,12 +296,12 @@ section h2::after {
 }
 
 .card-content h3 {
-    font-size: 1.8em; /* Slightly larger heading in cards */
+    font-size: 1.8em; 
     color: #2c3e50;
-    margin-top: 0; /* Remove default margin */
+    margin-top: 0; 
     margin-bottom: 15px;
     font-weight: 700;
-    position: relative; /* For a subtle underline */
+    position: relative; 
     padding-bottom: 10px;
 }
 
@@ -316,9 +311,9 @@ section h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 50px; /* Shorter underline for card headings */
+    width: 50px; 
     height: 3px;
-    background-color: #2ecc71; /* Another accent color */
+    background-color: #2ecc71; 
     border-radius: 2px;
 }
 
@@ -329,12 +324,12 @@ section h2::after {
 }
 
 .card-content ul {
-    list-style: none; /* Remove default bullet points */
+    list-style: none; 
     padding: 0;
-    text-align: left; /* Align list items left within the card */
-    width: 100%; /* Take full width */
-    max-width: 250px; /* Constrain list width if needed */
-    margin: 0 auto; /* Center the list */
+    text-align: left; 
+    width: 100%; 
+    max-width: 250px; 
+    margin: 0 auto; 
 }
 
 .card-content ul li {
@@ -342,14 +337,14 @@ section h2::after {
     margin-bottom: 8px;
     color: #444;
     position: relative;
-    padding-left: 25px; /* Space for custom bullet */
+    padding-left: 25px; 
 }
 
 .card-content ul li::before {
-    content: '\f00c'; /* Font Awesome checkmark icon */
+    content: '\f00c';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    color: #2ecc71; /* Green checkmark */
+    color: #2ecc71;
     position: absolute;
     left: 0;
     top: 0;
@@ -357,7 +352,7 @@ section h2::after {
 
 section h3 {
     font-size: 2em;
-    color: var(--dark-blue); /* Darker blue for subheadings */
+    color: var(--dark-blue); 
     margin-bottom: 18px;
     font-weight: 700;
     border-bottom: 2px solid rgba(0,0,0,0.05);
@@ -370,7 +365,7 @@ section p {
 }
 
 section ul {
-    list-style: none; /* Remove default bullet */
+    list-style: none;
     padding-left: 0;
     margin-bottom: 15px;
 }
@@ -381,7 +376,7 @@ section ul li {
     padding-left: 25px;
 }
 section ul li::before {
-    content: '🏸'; /* Badminton emoji as bullet */
+    content: '🏸'; 
     position: absolute;
     left: 0;
     color: var(--primary-blue);
@@ -389,7 +384,6 @@ section ul li::before {
     top: 0;
 }
 
-/* Grid Layout for Tournament Details */
 .details-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -407,7 +401,6 @@ section ul li::before {
     }
 }
 
-/* Call to Action Buttons within sections */
 .cta-button {
     display: inline-block;
     background-color: var(--green-cta);
@@ -442,7 +435,6 @@ section ul li::before {
     margin-top: 15px;
 }
 
-/* Footer Styles */
 footer {
     text-align: center;
     color: var(--text-light);
@@ -451,7 +443,6 @@ footer {
     padding-bottom: 30px;
 }
 
-/* Custom scrollbar for better aesthetics */
 ::-webkit-scrollbar {
     width: 8px;
 }
