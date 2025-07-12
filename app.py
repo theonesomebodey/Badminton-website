@@ -16,12 +16,10 @@ def generate_math_question():
 
     question_str = f"{num1} {operator} {num2}"
     try:
-        # Use eval to calculate the answer, careful with user input here, but these are controlled numbers
         answer = eval(question_str)
-    except ZeroDivisionError: # Avoid division by zero if we ever add '/'
-        return generate_math_question() # Regenerate if division by zero occurs
+    except ZeroDivisionError:
+        return generate_math_question() 
     
-    # Store the question string and its correct answer in the session
     session['math_question'] = question_str
     session['math_answer'] = answer
     return question_str
@@ -39,23 +37,20 @@ def signup():
         user_math_answer = request.form.get('math_answer_input')
         correct_math_answer = session.get('math_answer')
 
-        # --- 2. Validate Math Answer ---
         if not user_math_answer or str(user_math_answer) != str(correct_math_answer):
             flash('Incorrect math answer. Please try again.', 'error')
-            # Clear session math values to force new question
             session.pop('math_question', None)
             session.pop('math_answer', None)
-            return redirect(url_for('signup')) # Redirect to GET request to show new question
+            return redirect(url_for('signup'))
 
-        # --- Clear math session values after successful validation ---
         session.pop('math_question', None)
         session.pop('math_answer', None)
         fullname = request.form.get('fullName')
         email = request.form.get('email')
         phone = request.form.get('phone')
         skillLevel = request.form.get('skillLevel')
-        events = request.form.getlist('events') # For multiple checkboxes
-        partner_name = request.form.get('partnerName') # Will be None if not visible/filled
+        events = request.form.getlist('events') 
+        partner_name = request.form.get('partnerName') 
 
         message = (
             f"**New Player Form Submission:**\n"
@@ -89,15 +84,13 @@ def volunteer():
         user_math_answer = request.form.get('math_answer_input')
         correct_math_answer = session.get('math_answer')
 
-        # --- 2. Validate Math Answer ---
+
         if not user_math_answer or str(user_math_answer) != str(correct_math_answer):
             flash('Incorrect math answer. Please try again.', 'error')
-            # Clear session math values to force new question
+
             session.pop('math_question', None)
             session.pop('math_answer', None)
-            return redirect(url_for('volunteer')) # Redirect to GET request to show new question
-
-        # --- Clear math session values after successful validation ---
+            return redirect(url_for('volunteer')) 
         session.pop('math_question', None)
         session.pop('math_answer', None)
 
