@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Dropshots For A Cause!</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Optional: Add specific styles for donate page buttons/sections if needed */
+        .donate-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .donate-method-card {
+            background-color: #f8f8f8;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: transform 0.2s ease;
+        }
+
+        .donate-method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .donate-method-card .method-icon {
+            font-size: 3em;
+            color: #2ecc71; /* Green accent */
+            margin-bottom: 20px;
+        }
+
+        .donate-method-card h3 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .donate-method-card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .donate-button {
+            display: inline-block;
+            background-color: #3498db; /* Blue accent */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Specific style for Interac email */
+        .interac-email {
+            font-weight: bold;
+            color: #e67e22; /* Orange accent */
+            word-break: break-all; /* Ensures long emails wrap */
+        }
+
+        /* Responsive adjustments for donate methods */
+        @media (max-width: 768px) {
+            .donate-methods-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <img src="{{ url_for('static', filename='yerr.png') }}" alt="" class="smth">
+        <a href="/" class="top-nav-title">Dropshots For A Cause!</a>
+        <div class="top-nav-links">
+            <a href="volunteer.html">Volunteer</a>
+            <a href="signup.html">Sign up</a>
+            <a href="donate.html">Donate</a> </div>
+    </div>
+
+    <div class="hero-section hero-donate">
+        <h1>Support Dropshots For A Cause!</h1>
+        <p>Your contribution fuels change. Every donation helps us reach our goals.</p>
+        <a href="#donation-methods" class="hero-cta-button">Donate Now!</a>
+    </div>
+
+    <div class="container">
+        <section id="donate-intro" class="info-section">
+            <h2>Make a Difference Today</h2>
+            <p style="text-align: center; font-size: 1.15em; max-width: 800px; margin: 0 auto 50px auto; color: #444;">
+                Dropshots For A Cause is committed to [**reiterate your cause here, e.g., "providing essential resources for local youth programs"**].
+                Your generosity empowers us to [**describe the impact, e.g., "expand our reach and offer more opportunities to those in need"**].
+                Every dollar you contribute makes a tangible impact. Thank you for being a part of something meaningful.
+            </p>
+
+            <div class="donate-methods-grid" id="donation-methods">
+                <div class="donate-method-card">
+                    <div class="method-icon"><i class="fas fa-money-check-alt"></i></div>
+                    <h3>Interac e-Transfer</h3>
+                    <p>Send your donation directly via e-Transfer to:</p>
+                    <p class="interac-email">your.charity.email@example.com</p>
+                    <p style="font-size: 0.9em; color: #777;">(No security question required for auto-deposit)</p>
+                    <a href="mailto:your.charity.email@example.com" class="donate-button">Send e-Transfer</a>
+                </div>
+
+                <div class="donate-method-card">
+                    <div class="method-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Online Payment</h3>
+                    <p>Make a quick and secure donation using your credit card or PayPal account.</p>
+                    <p style="font-size: 0.9em; color: #777;">(You will be redirected to our secure payment portal.)</p>
+                    <a href="https://example.com/your-donation-portal" target="_blank" class="donate-button">Donate Online</a>
+                </div>
+
+                <div class="donate-method-card">
+                    <div class="method-icon"><i class="fas fa-mail-bulk"></i></div>
+                    <h3>Donate by Mail</h3>
+                    <p>If you prefer to donate via cheque, please make it payable to "Dropshots For A Cause" and mail to:</p>
+                    <p style="font-size: 0.95em; line-height: 1.5; color: #555;">
+                        [Your Organization Name]<br>
+                        [Your Street Address]<br>
+                        [City, Province/State, Postal Code]<br>
+                        [Country]
+                    </p>
+                    <a href="#" class="donate-button disabled" onclick="return false;">Mail Option</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Dropshots For A Cause. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
