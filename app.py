@@ -28,7 +28,9 @@ def generate_math_question():
 @app.route('/')
 def main():
     return render_template('main.html')
-
+@app.route('/donate.html') 
+def donate():
+    return render_template('donate.html')
 
 @app.route('/signup.html', methods=['GET', 'POST'])
 def signup():
